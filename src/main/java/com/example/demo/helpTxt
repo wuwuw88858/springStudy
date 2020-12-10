@@ -1,0 +1,16 @@
+@bean
+
+配置项
+@Configuration
+配置项扫描路径
+@ComponentScan("com.example.demo.PO")
+
+自动注入
+@Autowired
+@Qualifier // 当多个相同类型的bean需要注入时，使用该注解选择其中一个  所属范围：全部
+
+@Bean
+@Primary //当多个Bean需要注入时候，使用@Primay作为默认Bean(无使用@Qualifier)。使用范围：方法
+
+
+
