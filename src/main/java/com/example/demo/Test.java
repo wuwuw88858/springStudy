@@ -2,10 +2,13 @@ package com.example.demo;
 
 import com.example.demo.Annoation.Color;
 import com.example.demo.PO.People;
+import com.example.demo.PO.People2;
+import com.example.demo.conf.ApplicationConfig;
 import com.example.demo.service.DemoService;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.HashMap;
@@ -26,8 +29,9 @@ public class Test {
 //    }
 
 //        BeanFactory beanFactory = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-        ApplicationContext app = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-        People bean1 = app.getBean(People.class);
+//        ApplicationContext app = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+//        People2 bean1 = app.getBean(People2.class);
+//        System.out.println(bean1);
 //        Map<String, Object> beans = app.getBeansWithAnnotation(Color.class);
 //
 //        Map<String, String> map = new HashMap<>();
@@ -50,6 +54,13 @@ public class Test {
         // 延迟查找
 //        ObjectProvider<People> beanProvider = app.getBeanProvider(People.class);
 //        People p1 = beanProvider.getIfAvailable();
+
+
+        // ioc 注解查找
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        People bean = ctx.getBean(People.class);
+        System.out.println(bean);
+        System.out.println(bean.toString());
 
     }
 }
