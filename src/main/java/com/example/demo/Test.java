@@ -4,6 +4,8 @@ import com.example.demo.Annoation.Color;
 import com.example.demo.PO.People;
 import com.example.demo.PO.People2;
 import com.example.demo.conf.ApplicationConfig;
+import com.example.demo.myBean.AwareBean;
+import com.example.demo.myBean.AwareConfig;
 import com.example.demo.service.DemoService;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ObjectProvider;
@@ -57,10 +59,17 @@ public class Test {
 
 
         // ioc 注解查找
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        People bean = ctx.getBean(People.class);
-        System.out.println(bean);
-        System.out.println(bean.toString());
+//        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+//        People bean = ctx.getBean(People.class);
+//        System.out.println(bean);
+//        System.out.println(bean.toString());
+
+        /**
+         * 自定义AwareBean
+         */
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(AwareConfig.class);
+        AwareBean bean = annotationConfigApplicationContext.getBean(AwareBean.class);
+        bean.printBeans();
 
     }
 }
