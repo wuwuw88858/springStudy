@@ -1,21 +1,8 @@
 package com.example.demo;
 
-import com.example.demo.Annoation.Color;
-import com.example.demo.PO.People;
-import com.example.demo.PO.People2;
-import com.example.demo.conf.ApplicationConfig;
-import com.example.demo.myBean.AwareBean;
-import com.example.demo.myBean.AwareConfig;
-import com.example.demo.service.DemoService;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.ObjectProvider;
+import com.example.demo.beanFactory.Toy.Toy;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
 
 public class Test {
 
@@ -67,9 +54,15 @@ public class Test {
         /**
          * 自定义AwareBean
          */
-        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(AwareConfig.class);
-        AwareBean bean = annotationConfigApplicationContext.getBean(AwareBean.class);
-        bean.printBeans();
+//        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(AwareConfig.class);
+//        AwareBean bean = annotationConfigApplicationContext.getBean(AwareBean.class);
+//        bean.printBeans();
+
+        // factoryBean
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+//        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AwareConfig.class);
+        Toy toy = ctx.getBean(Toy.class);
+        System.out.println(toy);
 
     }
 }

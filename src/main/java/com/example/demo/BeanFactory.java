@@ -1,4 +1,4 @@
-package com.example.demo.Factory;
+package com.example.demo;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -13,4 +13,16 @@ public class AwareConfig {
     public AwareBean getBean(){
         return new AwareBean();
     }
+
+//    @Bean
+//    public Child child(){
+//        return new Child();
+//    }
+//
+//    @Bean
+//    public ToyFactoryBean toyFactoryBean() {
+//        ToyFactoryBean toyFactoryBean = new ToyFactoryBean();
+//        toyFactoryBean.setChild(child());
+//        return toyFactoryBean;
+//    }
 }
