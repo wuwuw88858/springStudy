@@ -1,7 +1,11 @@
 package com.example.demo;
 
 import com.example.demo.beanFactory.Toy.Toy;
+import com.example.demo.beanInit.Car;
+import com.example.demo.beanProtoType.Child;
+import com.example.demo.beanProtoType.PrototypeConfig;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Test {
@@ -59,10 +63,24 @@ public class Test {
 //        bean.printBeans();
 
         // factoryBean
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 //        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AwareConfig.class);
-        Toy toy = ctx.getBean(Toy.class);
-        System.out.println(toy);
+//        Toy toy = ctx.getBean(Toy.class);
+//        System.out.println(toy);
+
+        // prototype
+//        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(PrototypeConfig.class);
+        //map  name -> key   child -> value
+//        ctx.getBeansOfType(Child.class).forEach((name, child) -> {
+//            System.out.println(name + "->" + child);
+//        });
+
+
+        // 通过工厂获取bean
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+        ctx.getBeansOfType(Car.class).forEach((name, car) -> {
+            System.out.println(name + "----->" + car);
+        });
 
     }
 }

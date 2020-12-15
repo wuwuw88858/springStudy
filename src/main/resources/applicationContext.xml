@@ -21,4 +21,13 @@
             <property name="child" ref="child"/>
     </bean>
 
+    <!-- 静态工厂 ：分别从car, beanFactory的getCar()中初始化bean       beanInit-->
+    <bean id="car1" class="com.example.demo.beanInit.Car"/>
+    <bean id="car2" class="com.example.demo.beanInit.staticBeanFactory" factory-method="getCar"/>
+
+
+    <!--实例工厂-->
+    <bean id="instanceFactory" class="com.example.demo.beanInit.instanceBeanFactory"/>
+    <bean id="car3"  factory-bean="instanceFactory" factory-method="getCar"/>
+
 </beans>

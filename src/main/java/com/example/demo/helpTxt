@@ -1,29 +1,82 @@
-@bean
+BeanFactory 一个IOC容器
+ApplicationContext <- BeanFactory
+
+
 
 配置项
-@Configuration
-配置项扫描路径
-@ComponentScan("com.example.demo.PO")
+@Configuration -> 相当于xml
+
+@bean -> 代替了xml中 <bean>
+
+@Component -> 用在类级别上注解,在spring中,加上该注解的类将当成一个bean
+
+@ComponentScan("com.example.demo.PO") -> 为了需要感知被@Component加上注解的类 需要使用该注解进行扫描，
 
 自动注入
-@Autowired 按照类型注入
+@Autowired -> 按照对应属性,在IOC容器中寻找已经存在的bean。赋值在对应的属性上
 @Qualifier // 当多个相同类型的bean需要注入时，使用该注解选择其中一个  所属范围：全部
 
 @Bean
 @Primary //当多个Bean需要注入时候，使用@Primay作为默认Bean(无使用@Qualifier)。使用范围：方法
 
-@Resource 按照baen的名字注入 @Autowired + @Qualifier
+@Resource 按照bean的名称,在IOC中寻找bean,并注入 @Autowired(按照属性) + @Qualifier
 
 
 ----------
 ApplicationContextAware
 
 -----
-FactoryBean
+FactoryBean  一个bean工厂
 
 FactoryBean -> ToyFactoryBean
 Toy  -> Ball / Car
 Child
+
+---------
+bean作用域
+1. singleton 单例bean (默认)
+@Scope("singleton")  -> 放入factoryBean中的bean,地址都为同一个,每次请求都请求到同一个对象中 applicationContext中已经初始化好了
+
+
+2. prototype 原型bean
+@Scope("prototype") -> 放入factoryBean的bean,每个bean的地址不一样，每次请求都是新的对象
+
+3. request
+
+4. session
+
+5. application
+
+---------
+bean 实例方式
+分别通过静态工厂,实例工厂, IOC容器 注册bean
+1. 静态工厂
+    工厂本身不会注入IOC容器中
+2. 实例工厂
+    工厂自身会注入IOC容器中
+3. <bean id="car" class="com.xx.x.xxx.x"/>
+IOC容器的三个bean都不一样
+
+---------
+bean 生命周期
+1. IOC初始化
+2. xml中init-method方法
+3. desctory-method方法
+4. IOC销毁
+
+
+JSR250 规范
+start IOC
+@PostConstruct  -> xml中init-method方法
+JSR250 规范
+@PreDestroy -> xml中 desctory-method方法
+cloe IOC
+
+
+
+
+
+
 
 
 

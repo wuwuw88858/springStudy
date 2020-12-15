@@ -5,7 +5,9 @@ import com.example.demo.beanFactory.Toy.Car;
 import com.example.demo.beanFactory.Toy.Toy;
 import com.example.demo.beanFactory.child.Child;
 import org.springframework.beans.factory.FactoryBean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ToyFactoryBean implements FactoryBean<Toy> {
 
     public ToyFactoryBean() {
