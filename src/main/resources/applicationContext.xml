@@ -29,5 +29,7 @@
     <!--实例工厂-->
     <bean id="instanceFactory" class="com.example.demo.beanInit.instanceBeanFactory"/>
     <bean id="car3"  factory-bean="instanceFactory" factory-method="getCar"/>
+    <!-- 第14 注入普通的cat -->
+    <bean class="com.example.demo.fortheen.PO.Cat"/>
 
 </beans>
