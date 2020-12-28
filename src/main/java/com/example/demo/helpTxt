@@ -90,7 +90,7 @@ DI:由客户端从IOC容器中取出,并保存至自身的成员属性
 DL:给spring管理的加上@AutoWired等自动注入的注解,并让IOC进行自动识别,完成自动注入
 
 
-ConfigBeanFactory
+
 
 
 
