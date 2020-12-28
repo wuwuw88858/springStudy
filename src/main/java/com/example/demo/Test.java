@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.beanFactory.Toy.Toy;
 import com.example.demo.beanInit.Car;
+import com.example.demo.beanLifeCycle.BeanLiftCycleConfig;
 import com.example.demo.beanProtoType.Child;
 import com.example.demo.beanProtoType.PrototypeConfig;
 import org.springframework.context.ApplicationContext;
@@ -77,10 +78,13 @@ public class Test {
 
 
         // 通过工厂获取bean
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-        ctx.getBeansOfType(Car.class).forEach((name, car) -> {
-            System.out.println(name + "----->" + car);
-        });
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+//        ctx.getBeansOfType(Car.class).forEach((name, car) -> {
+//            System.out.println(name + "----->" + car);
+//        });
+
+        //bean的生命周期
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(BeanLiftCycleConfig.class);
 
     }
 }
