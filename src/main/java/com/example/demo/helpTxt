@@ -118,6 +118,20 @@ ResourcePatternResolver(资源模式解析器)
 2. 可以匹配到类路径下的文件：加一个"classpath*:"，不仅可以匹配webapps下的文件，也可匹配classpath下的文件
 
 
+GenericApplicationContext
+1. 组合beanFactory
+2. 借助BeanDefinitionRegistry(bean定义的注册器)处理特殊的bean
+
+AbstractApplicationContext
+1. 支持多次bean的刷新
+2. 加载bean定义信息，多次刷新的时候，bean信息会被覆盖
+
+
+asbtract下面的实现类
+ClassPathXmlApplicationCOntext和FileSystemXmlApplicationContext
+
+
+
 
 
 
