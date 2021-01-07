@@ -131,6 +131,20 @@ asbtract下面的实现类
 ClassPathXmlApplicationCOntext和FileSystemXmlApplicationContext
 
 
+Spring事件监听
+
+
+Spring的模块装配
+模块是指模块内部高耦合，模块之间独立的功能模块。模块装配即把一个模块的核心组件功能都装配好。
+
+模块装配的核心原则：自定义注解 + @Import导入组件
+
+1. 导入普通类
+
+2. 导入配置类
+
+3. 导入ImportSelector
+
 
 
 
