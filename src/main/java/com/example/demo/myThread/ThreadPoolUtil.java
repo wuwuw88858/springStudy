@@ -13,6 +13,10 @@ import java.util.concurrent.TimeUnit;
 public class ThreadPoolUtil {
     static BlockingQueue<Runnable> waitQueue = new LinkedBlockingQueue<>(10);
 
+//    public static Thread getThreadById(String taskId) {
+//        ThreadGroup threadGroup = Thread.currentThread().getThreadGroup();
+//
+//    }
     public static void main(String[] args) {
         ThreadPoolExecutor threadPoolExecutor = threadExecutors();
 

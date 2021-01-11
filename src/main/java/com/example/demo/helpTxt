@@ -131,11 +131,16 @@ asbtract下面的实现类
 ClassPathXmlApplicationCOntext和FileSystemXmlApplicationContext
 
 
-Spring事件监听
+Spring的事件监听
+ContextRefreshEvent 和  ContextCloseEvent
+
+ContextStartEvent   和  ContextStoppedEvent
 
 
-Spring的模块装配
-模块是指模块内部高耦合，模块之间独立的功能模块。模块装配即把一个模块的核心组件功能都装配好。
+Spring中的模块装配
+模块相当于高内聚 高独立性的功能单元;
+模块装配即把一个模块需要的核心功能组件都以简洁的方式进行装配。
+
 
 模块装配的核心原则：自定义注解 + @Import导入组件
 
@@ -144,7 +149,6 @@ Spring的模块装配
 2. 导入配置类
 
 3. 导入ImportSelector
-
 
 
 
