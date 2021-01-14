@@ -144,11 +144,34 @@ Spring中的模块装配
 
 模块装配的核心原则：自定义注解 + @Import导入组件
 
+@Import({xxx.Class})
+public @interface config {
+}
+
 1. 导入普通类
-
+    @config
 2. 导入配置类
+    同理 @config +@Configuration
 
-3. 导入ImportSelector
+3. 导入ImportSelector  > 声明式导入
+
+4. 导入ImportBeanDefinitionRegister  -> 编程式导入
+
+
+条件装配
+
+1. @profile方式
+    环境式装配，无法进行单个bean进行装配
+
+2. 运行环境配置
+    在 VM options中进行配置
+
+3. @Conditional方式
+    被标注@Condtional注解的bean,只有条件满足，才可注入到IOC容器之中。
+
+
+组件扫描
+
 
 
 
