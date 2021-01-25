@@ -171,6 +171,28 @@ public @interface config {
 
 
 组件扫描
+1. 规则-> @ComponentScan(basePackages="",includeFilters=@ComponentScan.Filter(Animals.class))
+A, B类分别加上了@Animals  B, C类有@Component
+在@ComonentScan中，会有默认规则,将@Component中的都加进去IOC当中,且因为在inClude规则中,加上@Animals注解的类也会加入IOC中
+因此A, B, C类都会在IOC中
+
+2. 规则-> @ComponentScan(basePackages="",excludeFilters=@ComponentScan.Filter(Animals.class))
+在@ComonentScan中，会有默认规则,将@Component中的都加进去IOC当中,但是在exClude规则中,加上@Animals注解的类也会被排除到IOC容器之外
+因此只有加了@Component，没加@Animals的C类都会在IOC中
+
+
+Spring对资源的管理
+
+1. ClassLoader  -> ClassPathResource
+2. file  -> FileSystemResource
+3. URL   -> UrlResource
+
+SpringFramework加载资源的方式,通过defaultResourceLoader.getResource方法
+
+
+@PropertySource引入xml文件
+
+
 
 
 
