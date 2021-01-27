@@ -1,20 +1,17 @@
-package com.example.demo.modelFitting.config;
+package com.example.demo.modelFitting.vo;
+
 
 import com.example.demo.modelFitting.condiitonal.BarConditional;
-import com.example.demo.modelFitting.vo.Bar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author zhijie
- * @date 2021-01-07 23:52
- */
 @Configuration
-public class BarConfiguration {
+public class ConditionBar {
 
     @Bean
-    public Bar bar() {
+    @Conditional(value = {BarConditional.class})
+    public Bar conditionBar() {
         return new Bar();
     }
 }

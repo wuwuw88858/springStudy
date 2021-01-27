@@ -131,17 +131,67 @@ asbtract下面的实现类
 ClassPathXmlApplicationCOntext和FileSystemXmlApplicationContext
 
 
-Spring事件监听
+Spring的事件监听
+ContextRefreshEvent 和  ContextCloseEvent
+
+ContextStartEvent   和  ContextStoppedEvent
 
 
-Spring的模块装配
-模块是指模块内部高耦合，模块之间独立的功能模块。模块装配即把一个模块的核心组件功能都装配好。
+Spring中的模块装配
+模块相当于高内聚 高独立性的功能单元;
+模块装配即把一个模块需要的核心功能组件都以简洁的方式进行装配。
+
 
 模块装配的核心原则：自定义注解 + @Import导入组件
 
-1. 导入普通类
+@Import({xxx.Class})
+public @interface config {
+}
 
+1. 导入普通类
+    @config
 2. 导入配置类
+    同理 @config +@Configuration
+
+3. 导入ImportSelector  > 声明式导入
+
+4. 导入ImportBeanDefinitionRegister  -> 编程式导入
+
+
+条件装配
+
+1. @profile方式
+    环境式装配，无法进行单个bean进行装配
+
+2. 运行环境配置
+    在 VM options中进行配置
+
+3. @Conditional方式
+    被标注@Condtional注解的bean,只有条件满足，才可注入到IOC容器之中。
+
+
+组件扫描
+1. 规则-> @ComponentScan(basePackages="",includeFilters=@ComponentScan.Filter(Animals.class))
+A, B类分别加上了@Animals  B, C类有@Component
+在@ComonentScan中，会有默认规则,将@Component中的都加进去IOC当中,且因为在inClude规则中,加上@Animals注解的类也会加入IOC中
+因此A, B, C类都会在IOC中
+
+2. 规则-> @ComponentScan(basePackages="",excludeFilters=@ComponentScan.Filter(Animals.class))
+在@ComonentScan中，会有默认规则,将@Component中的都加进去IOC当中,但是在exClude规则中,加上@Animals注解的类也会被排除到IOC容器之外
+因此只有加了@Component，没加@Animals的C类都会在IOC中
+
+
+Spring对资源的管理
+
+1. ClassLoader  -> ClassPathResource
+2. file  -> FileSystemResource
+3. URL   -> UrlResource
+
+SpringFramework加载资源的方式,通过defaultResourceLoader.getResource方法
+
+
+@PropertySource引入xml文件
+
 
 3. 导入ImportSelector
     继承ImportSelector 实现selectImport
@@ -154,7 +204,7 @@ Spring的模块装配
 1. 编程时设置运行环境
         1.1 @Profile
         1.2 一定要在初始化后重新装载register并refresh一下配置文件的属性,否则不生效
-2. 
+2.
 
 
 
