@@ -1,9 +1,9 @@
-package com.example.demo.modelFitting.Inter;
+package com.example.demo.conditionFitting.Inter;
 
 
-import com.example.demo.modelFitting.config.BartenderConfig;
-import com.example.demo.modelFitting.config.WaiterRegistrar;
-import com.example.demo.modelFitting.vo.Boss;
+import com.example.demo.conditionFitting.config.BartenderConfig;
+import com.example.demo.conditionFitting.config.WaiterRegistrar;
+import com.example.demo.conditionFitting.vo.Boss;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
