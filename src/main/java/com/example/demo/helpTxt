@@ -193,6 +193,19 @@ SpringFramework加载资源的方式,通过defaultResourceLoader.getResource方�
 @PropertySource引入xml文件
 
 
+3. 导入ImportSelector
+    继承ImportSelector 实现selectImport
+
+4. ImportBeanDefinitionRegistrar
+    继承ImportBeanDefinitionRegistrar 实现registerBeanDefinition
+
+
+条件装配
+1. 编程时设置运行环境
+        1.1 @Profile
+        1.2 一定要在初始化后重新装载register并refresh一下配置文件的属性,否则不生效
+2.
+
 元信息
 SpringFramework中的bean,一个个封装成元信息(bean的定义信息) --  beanDefinition
 如;
