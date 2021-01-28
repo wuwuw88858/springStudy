@@ -193,6 +193,29 @@ SpringFramework加载资源的方式,通过defaultResourceLoader.getResource方�
 @PropertySource引入xml文件
 
 
+元信息
+SpringFramework中的bean,一个个封装成元信息(bean的定义信息) --  beanDefinition
+如;
+bean的权限名 className; 作用域 scop; factoryBean; 属性值 propertyNames;
+
+<alias/> -- bean的别名
+<alias name = "furthName" alias = 'aliasName'/>
+
+properties 将转换成 propertySource;propertySource存放着配置信息
+
+
+Environment
+    1.Spring的运行时环境。
+    Spring包含了Profile和Porperties
+    1.1. Profile -- 用于区分不同的环境模式
+         spring.profiles.active=dev
+         xxx.properties文件根据Profile设置的环境来加载对应的Properties文件
+         在不符合Profile环境模式的bean将处于不活跃状态,不会加载到IOC容器中
+
+
+
+
+
 
 
 

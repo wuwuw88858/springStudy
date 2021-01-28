@@ -84,7 +84,7 @@ public class Test {
 //        });
 
         //bean的生命周期
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(BeanLiftCycleConfig.class);
+  //      AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(BeanLiftCycleConfig.class);
 
     }
 }
