@@ -6,7 +6,7 @@ package com.thread.demo;
  */
 public class Test {
 
-    public static void main(String[] args) {
+    public static synchronized void main(String[] args) {
         Thread thread = new Thread();
     }
 }
