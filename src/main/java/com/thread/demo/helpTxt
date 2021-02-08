@@ -1,0 +1,64 @@
+
+
+进程和线程
+
+进程 系统分配资源和管理资源的基本单位
+线程 进程的执行单元
+一个应用至少包含一个进程，一个进程至少包含一个线程
+每启动一个进程,系统都会为进程分配地址空间
+线程共享进程中的数据，共享相同的地址空间。因此CPU切换花费时间小于进程。线程创建的开销也小于进程
+
+
+NEW -> new 线程的时候就有了 但是还没start
+
+RUNNABLE -> 线程启动(start)的时候处于runnable。这个runnable可以已经在执行了，也有可能在等其他资源
+
+BLOCKED -> 等待锁获取的时候的状态 此时线程阻塞
+
+WAITING -> 线程等待
+
+TIME_WAITING -> 线程超时等待
+
+TERMINATED -> 线程终线程
+
+
+
+线程创建方式
+    1. extend Thread
+    2. implement Runnable  重写 run() 方法
+    3. 匿名内部类
+        new Thread(new Runnable() {
+        public void run() {
+            }
+        }).start();
+    4. 线程池  Executors.newSingleThreadExecutor()
+
+Synchorized的三种使用方式
+    1. 修饰普通方法
+        相同实例调用同个方法会锁住，不同实例不会。因此锁的是对象实例
+    2. 修饰static方法
+        锁的是整个类，即使是两个对象调用这个静态方法,依旧会锁住
+    3. 锁代码块 锁的是对象
+       Object object = new Object();
+        method() {
+        synchroized(object) {
+            }
+        }
+
+
+volatile关键字
+    修饰变量,可以保证对象的可见性,不保证原子性
+    A线程读取之后，修改了变量的值
+    对于B线程来说,是可见的
+
+    使用场景
+        1. while(flage) 中,flag可以使用volatile进行修饰.线程开关
+        2. 单利，修饰对象，禁止指令重排
+
+饿汉式单例  -> 类加载过程中就实例化了对象 单例构造私有
+    因为在类加载中就实例化了对象,因此属于Thread safe
+懒汉式单例 -> 需要使用到的私有才实例化对象
+
+
+
+Lock
