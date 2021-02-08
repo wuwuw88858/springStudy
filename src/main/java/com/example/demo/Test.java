@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.BeanDefinitionRegistry.AnimalPerson;
+import com.example.demo.BeanDefinitionRegistry.BeanDefinitionRegistoryConfig;
 import com.example.demo.beanFactory.Toy.Toy;
 import com.example.demo.beanInit.Car;
 import com.example.demo.beanLifeCycle.BeanLiftCycleConfig;
@@ -9,9 +11,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Test {
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        System.out.println(false ? 1 : 2);
 //        DemoService getBean = (DemoService)BeanFactory.getBean("demoService");
 //        System.out.println(getBean.getClass().getName());
 //
@@ -86,5 +94,9 @@ public class Test {
         //bean的生命周期
   //      AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(BeanLiftCycleConfig.class);
 
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(
+                BeanDefinitionRegistoryConfig.class);
+        AnimalPerson person = ctx.getBean(AnimalPerson.class);
+        System.out.println(person);
     }
 }
